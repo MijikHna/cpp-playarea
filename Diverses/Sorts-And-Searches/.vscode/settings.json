@@ -1,0 +1,9 @@
+{
+  "makefile.launchConfigurations": [
+    {
+      "cwd": "/media/kirill/WindowsD/Programmieren/CundCpp/Training/Diverses/Sorts/bin",
+      "binaryPath": "/media/kirill/WindowsD/Programmieren/CundCpp/Training/Diverses/Sorts/bin/main",
+      "binaryArgs": []
+    }
+  ]
+}

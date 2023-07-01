@@ -1,0 +1,9 @@
+{
+  "makefile.launchConfigurations": [
+    {
+      "cwd": "/media/kirill/WindowsD/Programmieren/CundCpp/Training/HttpRequest/CppRequest/bin",
+      "binaryPath": "/media/kirill/WindowsD/Programmieren/CundCpp/Training/HttpRequest/CppRequest/bin/main",
+      "binaryArgs": []
+    }
+  ]
+}
