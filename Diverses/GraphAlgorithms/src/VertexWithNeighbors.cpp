@@ -8,6 +8,8 @@
 using namespace std;
 
 namespace GraphAlgo {
+  VertexWithNeighbors::VertexWithNeighbors() {}
+
   VertexWithNeighbors::VertexWithNeighbors(Vertex* vertex) : vertex(vertex) {
     this->neighbors = vector<VertexNeighbor>();
   }

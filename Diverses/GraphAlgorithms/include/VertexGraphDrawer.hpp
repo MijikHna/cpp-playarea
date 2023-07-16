@@ -19,6 +19,7 @@ namespace GraphAlgo {
   public:
     enum class DIRECTION {
       UP,                // DONE
+      UP_DOUBLE,         // DONE
       UP_LEFT,           // DONE
       UP_LEFT_DOUBLE,    // DONE
       UP_RIGHT,          // DONE
@@ -26,6 +27,7 @@ namespace GraphAlgo {
       LEFT,              // DONE
       RIGHT,             // DONE
       DOWN,              // DONE
+      DOWN_DOUBLE,       // DONE
       DOWN_LEFT,         // DONE
       DOWN_LEFT_DOUBLE,  // DONE
       DOWN_RIGHT,        // DONE

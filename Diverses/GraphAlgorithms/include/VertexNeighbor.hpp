@@ -11,6 +11,7 @@ namespace GraphAlgo {
     Vertex* vertex;
 
   public:
+    VertexNeighbor();
     VertexNeighbor(Vertex* vertex, int weight);
     VertexNeighbor(VertexNeighbor&&);                 // move-constructor
     VertexNeighbor(const VertexNeighbor&);            // copy constructor
@@ -20,6 +21,7 @@ namespace GraphAlgo {
 
     auto getVertex() -> Vertex*;
     auto getWeight() -> int;
+    auto setWeight(int weight) -> void;
   };
 } // namespace GraphAlgo
 #endif // !__VERTEX_NEIGHBOR__

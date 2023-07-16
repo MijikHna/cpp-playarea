@@ -1,6 +1,8 @@
 #include "../include/VertexNeighbor.hpp"
 
 namespace GraphAlgo {
+  VertexNeighbor::VertexNeighbor() {}
+
   VertexNeighbor::VertexNeighbor(Vertex* vertex, int weight) : vertex(vertex), weight(weight) {}
 
   // move
@@ -11,7 +13,7 @@ namespace GraphAlgo {
   // move
   VertexNeighbor& VertexNeighbor::operator=(VertexNeighbor&& vertexMove) {
     this->vertex = std::move(vertexMove.vertex);
-    this->weight = vertexMove.weight;
+    this->weight = std::move(vertexMove.weight);
     return *this;
   }
   // copy
@@ -23,4 +25,6 @@ namespace GraphAlgo {
 
   auto VertexNeighbor::getVertex() -> Vertex* { return this->vertex; }
   auto VertexNeighbor::getWeight() -> int { return this->weight; }
+
+  auto VertexNeighbor::setWeight(int weight) -> void { this->weight = weight; }
 } // namespace GraphAlgo

@@ -139,6 +139,53 @@ namespace GraphAlgo {
         this->tempFile << '|';
       }
       break;
+    case DIRECTION::UP_DOUBLE:
+      if (withDirection) {
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << weight;
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << "|";
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << "|";
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << "^";
+      } else {
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << weight;
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos -= (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+      }
+      break;
     case DIRECTION::UP_LEFT:
       if (withDirection) {
         workingCursorPos -= (this->columns + 1) + 1;
@@ -246,6 +293,53 @@ namespace GraphAlgo {
         this->tempFile << '|';
       }
       break;
+    case DIRECTION::DOWN_DOUBLE:
+      if (withDirection) {
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << weight;
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << 'v';
+      } else {
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << weight;
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+        workingCursorPos += (this->columns + 1);
+        this->tempFile.seekp(workingCursorPos);
+        this->tempFile << '|';
+      }
+      break;
     case DIRECTION::DOWN_LEFT:
       if (withDirection) {
         workingCursorPos += (this->columns + 1) - 1;
@@ -331,8 +425,10 @@ namespace GraphAlgo {
       } else if (vertIndexes["insideIndex"] == vertNeighIndexes["insideIndex"]) {
         if (vertIndexes["length"] < vertNeighIndexes["length"]) {
           return DIRECTION::DOWN_LEFT;
-        } else if (vertIndexes["length"] == vertNeighIndexes["length"]) {
+        } else if (vertIndexes["length"] == vertNeighIndexes["length"] && vertNeighIndexes["outsideIndex"] - vertIndexes["outsideIndex"] == 1) {
           return DIRECTION::DOWN;
+        } else if (vertIndexes["length"] == vertNeighIndexes["length"] && vertNeighIndexes["outsideIndex"] - vertIndexes["outsideIndex"] == 2) {
+          return DIRECTION::DOWN_DOUBLE;
         } else if (vertIndexes["length"] > vertNeighIndexes["length"]) {
           return DIRECTION::DOWN_RIGHT;
         }
@@ -373,8 +469,10 @@ namespace GraphAlgo {
       } else if (vertIndexes["insideIndex"] == vertNeighIndexes["insideIndex"]) {
         if (vertIndexes["length"] < vertNeighIndexes["length"]) {
           return DIRECTION::UP_LEFT;
-        } else if (vertIndexes["length"] == vertNeighIndexes["length"]) {
+        } else if (vertIndexes["length"] == vertNeighIndexes["length"] && vertIndexes["outsideIndex"] - vertNeighIndexes["outsideIndex"] == 1) {
           return DIRECTION::UP;
+        } else if (vertIndexes["length"] == vertNeighIndexes["length"] && vertIndexes["outsideIndex"] - vertNeighIndexes["outsideIndex"] == 2) {
+          return DIRECTION::UP_DOUBLE;
         } else if (vertIndexes["length"] > vertNeighIndexes["length"]) {
           return DIRECTION::UP_RIGHT;
         }

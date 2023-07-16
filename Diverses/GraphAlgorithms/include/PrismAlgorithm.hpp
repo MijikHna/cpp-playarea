@@ -1,17 +1,10 @@
 #include "../include/Vertex.hpp"
 #include "../include/VertexWithNeighbors.hpp"
 
-#include <any>
-#include <map>
-#include <numeric>
-#include <string>
-#include <utility>
-
 #ifndef __PRISM_ALGORITHM__
+#define __PRISM_ALGORITHM__
 
 namespace GraphAlgo {
-  using namespace std;
-
   class PrismAlgorithm {
   private:
     vector<VertexWithNeighbors> vertexes;

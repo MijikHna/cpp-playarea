@@ -18,6 +18,7 @@ add_executable(
   src/VertexWithNeighbors.cpp
   src/VertexGraphDrawer.cpp
   src/PrismAlgorithm.cpp
+  src/DijkstraAlgorithm.cpp
 )
 
 # target_link_libraries(${PROJECT_NAME} ncurses)

@@ -11,6 +11,7 @@ namespace GraphAlgo {
     vector<VertexNeighbor> neighbors;
 
   public:
+    VertexWithNeighbors();
     VertexWithNeighbors(Vertex* vertex);
     VertexWithNeighbors(VertexWithNeighbors&&) = default;
     VertexWithNeighbors(const VertexWithNeighbors&) = default;
